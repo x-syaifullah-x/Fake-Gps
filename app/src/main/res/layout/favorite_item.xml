@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="id.fake.gps.favorite.FavoriteEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_selection">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{data.name}"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/address_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{data.address}"
+            app:layout_constraintTop_toBottomOf="@+id/title_history"
+            tools:text="Address" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/latitude_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{@string/formatDouble(data.latitude)}"
+            app:layout_constraintTop_toBottomOf="@+id/address_history"
+            tools:text="Latitude" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/longitude_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{@string/formatDouble(data.longitude)}"
+            app:layout_constraintTop_toBottomOf="@+id/latitude_history"
+            tools:text="Longitude" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/date_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text_date_favorite="@{data.date}"
+            app:layout_constraintTop_toBottomOf="@+id/longitude_history"
+            tools:text="Date" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
